@@ -9,10 +9,12 @@ public class Main {
 		int[] coins = {500, 100, 50, 10, 5, 1};
 
 		for (int i = 0; i < coins.length; i++) {
-			if (changes % coins[i] >= 0) {
-				cnt += changes / coins[i];
-				changes = changes % coins[i];
+			if (changes < coins[i]) {
+				continue;
 			}
+			int q = changes / coins[i];
+			changes %= coins[i];
+			cnt += q;
 		}
 		System.out.println(cnt);
 	}
